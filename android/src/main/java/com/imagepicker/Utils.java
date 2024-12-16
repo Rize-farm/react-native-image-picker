@@ -513,7 +513,7 @@ public class Utils {
 
         if (options.includeExtra) {
             // Add more extra data here ...
-            if (imageMetadataOri.getDateTime() == null) {
+            if (imageMetadataOri.getDateTime().contains("1970")) {
                 map.putString("timestamp", imageMetadataReplicate.getDateTime());
             } else {
                 map.putString("timestamp", imageMetadataOri.getDateTime());
