@@ -5,6 +5,7 @@
   "react-native": "src/index.ts",
   "main": "src/index.ts",
   "types": "lib/typescript/index.d.ts",
+  "private": true,
   "files": [
     "/android",
     "!/android/build",
