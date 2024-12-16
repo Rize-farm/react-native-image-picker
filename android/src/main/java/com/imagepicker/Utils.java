@@ -491,8 +491,7 @@ public class Utils {
     }
 
     static ReadableMap getImageResponseMap(Uri uri, Uri appSpecificUri, Options options, Context context) {
-        ImageMetadata imageMetadataOri = new ImageMetadata(uri, context);
-        ImageMetadata imageMetadataReplicate = new ImageMetadata(appSpecificUri, context);
+        ImageMetadata imageMetadata = new ImageMetadata(uri, context);
         int[] dimensions = getImageDimensions(appSpecificUri, context);
 
         String fileName = getFileName(uri, context);
@@ -513,11 +512,7 @@ public class Utils {
 
         if (options.includeExtra) {
             // Add more extra data here ...
-            if (imageMetadataOri.getDateTime().contains("1970")) {
-                map.putString("timestamp", imageMetadataReplicate.getDateTime());
-            } else {
-                map.putString("timestamp", imageMetadataOri.getDateTime());
-            }
+            map.putString("timestamp", imageMetadata.getDateTime());
             map.putString("id", fileName);
         }
 
